@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import MyStatefulEditor from "./editor";
+import EditorConvertToHTML from "./editor2";
 function App() {
+
+  const [texto, setTexto] = useState('')
+
+  const handleText = (data)=>{
+    setTexto(data)
+    console.log(data)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{width: '400px', margin: 'auto', height: '500px', border: '3px solid red'}}>
+      <EditorConvertToHTML />
+
+      <p>{texto}</p>
     </div>
   );
 }
